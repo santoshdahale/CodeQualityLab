@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 public class Config {
 
     @Value("${azure.openai.embedding-deployment-id}")
-    private String embeddingDeploymentId;
+    private String openAiEndpoint;
 
     @Value("${azure.openai.endpoint}")
     private String openAiEndpoint;
@@ -38,7 +38,7 @@ public class Config {
                 .endpoint(openAiEndpoint)
                 .credential(new AzureKeyCredential(openAiApiKey))
                 .buildClient();
-        return new AzureOpenAIClient(innerClient, embeddingDeploymentId, null);
+        return new AzureOpenAIClient(innerClient, openAiEndpoint, null);
     }
 
     @Bean
