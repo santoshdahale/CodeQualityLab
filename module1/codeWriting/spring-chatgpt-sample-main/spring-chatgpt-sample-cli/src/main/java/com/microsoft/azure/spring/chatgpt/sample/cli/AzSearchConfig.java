@@ -9,7 +9,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-
+// This class is provided as an example of how to configure the Azure Cognitive Search vector store.
 @Configuration
 @ConditionalOnProperty(name = "vector-store.type", havingValue = "azure-search")
 public class AzSearchConfig {
@@ -24,6 +24,7 @@ public class AzSearchConfig {
     private String acsIndexName;
 
     @Bean
+    // This bean is only created if the property vector-store.type is set to azure-search.
     public VectorStore vectorStore() {
         final SearchClient searchClient = new SearchClientBuilder()
                 .endpoint(acsEndpoint)
