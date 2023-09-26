@@ -2,11 +2,10 @@
  * Created by mrk on 4/8/14.
  */
 public class UnitUpgrader {
-    public StudioModified() {
-        this.numberOfRooms = 0;
-    }
+    public void upgrade(Apartment apartment) {
+        apartment.squareFootage += 40;
 
-    public void setSquareFootage(int sqft) {
-        this.squareFootage = sqft;
+        if (apartment.getClass() != Studio.class)
+            apartment.numberOfBedrooms += 1;
     }
 }
